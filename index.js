@@ -33,4 +33,3 @@ color2.addEventListener("input",allValue);
 
 
 // linear-gradient(direction, color-stop1, color-stop2, ...)
-
