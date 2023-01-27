@@ -1,34 +1,36 @@
-var button = document.getElementById("enter");
-var input  = document.getElementById("userinput");
-var ul = document.querySelector("ul");
-var text = document.getElementById("capslock");
+var color1 = document.querySelector(".color1");
+var color2 = document.querySelector(".color2");
+var gradient = document.getElementById("gradient");
+var h3 = document.querySelector("h3");
+var hexCode;
 
 
-function inputLength() {
-    return input.value.length; 
+function currentColorText () {
+     hexCode = "linear-gradient ( to right ," + color1.value + ", " + color2.value +" )";
+
+    h3.innerHTML = hexCode;
+        h3.select();
+        document.execCommand("copy");
+
+  
+
 }
 
 
+function currentColor() {
+    gradient.style.background = "linear-gradient(to right,"+ color1.value +", "+color2.value + ")";
 
-function createLi() {
-    var li = document.createElement("li");
-            li.appendChild(document.createTextNode(input.value));
-            ul.appendChild(li);
-            input.value = ""; 
-};
-
-
-function addListAfterClick() {
-        if(inputLength() > 0) {
-            createLi();
-        }
 }
 
-function addListAfterKeypress(event) {
-        if(inputLength() > 0 && event.keyCode === 13) {
-            createLi();
-    }
+function allValue() {
+    currentColor();
+    currentColorText ();
 }
 
-button.addEventListener("click",addListAfterClick);
-input.addEventListener("keypress",addListAfterKeypress);
+color1.addEventListener("input",allValue);
+
+color2.addEventListener("input",allValue);
+
+
+// linear-gradient(direction, color-stop1, color-stop2, ...)
+
